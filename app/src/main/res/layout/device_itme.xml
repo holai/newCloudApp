@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:padding="8dp"
+        android:background="@drawable/project_item_bg"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/inbox"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="10dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/devicesName"
+                    android:gravity="center"
+                    android:textColor="#428bca"
+                    android:text="LORA网关"
+                    android:textSize="14sp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:text="是否在线："
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/devicesIsOnline"
+                    android:textColor="#000"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:text="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    style="@style/devices_left"
+                    android:text="设备ID:" />
+                <TextView
+                    android:id="@+id/devicesID"
+                    style="@style/devices_right"
+                    android:text="30459" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    style="@style/devices_left"
+                    android:text="设备标识:" />
+                <TextView
+                    android:id="@+id/devicesTag"
+                    style="@style/devices_right"
+                    android:text="LR1000"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    style="@style/devices_left"
+                    android:text="通讯协议:" />
+                <TextView
+                    android:id="@+id/devicesProtocol"
+                    style="@style/devices_right"
+                    android:text="TCP" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    style="@style/devices_left"
+                    android:text="最后登陆:"/>
+                <TextView
+                    android:id="@+id/LastOnlineIP"
+                    style="@style/devices_right"
+                    android:textSize="10sp"
+                    android:text="42.237.238.156"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    style="@style/devices_left"
+                    android:text="创建时间:" />
+                <TextView
+                    android:id="@+id/devicesCreateDate"
+                    style="@style/devices_right"
+                    android:text="2019-04-11 16:06" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

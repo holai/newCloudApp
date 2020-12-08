@@ -1,0 +1,2 @@
+cn.com.newland.nle_sdk
+string app_name

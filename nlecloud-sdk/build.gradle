@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.2.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.2.0'
+    api 'com.google.code.gson:gson:2.8.1'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+}
+task clearJar(type: Delete) {
+    delete 'build/libs/nlecloudII.jar' //jar包名称
+}
+task makeJar(type: Jar) {
+    archivesBaseName = "nlecloudII"
+    from('build/intermediates/classes/release')
+    //以下根据你的实际路径设置
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.gson\\gson\\2.8.1\\2a8e0aa38a2e21cb39e2f5a7d6704cbdc941da0\\gson-2.8.1.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.okhttp3\\okhttp\\3.8.0\\5a11f020cce2d11eb71ba916700600e18c4547e7\\okhttp-3.8.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.retrofit2\\adapter-rxjava\\2.3.0\\43e4ac24adc40a24c51b2d2a71a2483ef1b0ce9a\\adapter-rxjava-2.3.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.okio\\okio\\1.13.0\\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\\okio-1.13.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.retrofit2\\converter-gson\\2.2.0\\a09926806199499a20b2f5168779499abfa33342\\converter-gson-2.2.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.retrofit2\\converter-scalars\\2.2.0\\6303d085f1da877f8cd49ae36ffc49db2ab59f4f\\converter-scalars-2.2.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup\\javawriter\\2.1.1\\67ff45d9ae02e583d0f9b3432a5ebbe05c30c966\\javawriter-2.1.1.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\io.reactivex\\rxjava\\1.3.0\\af000bec2036a2a9d07197c4b03b8966bfc60b03\\rxjava-1.3.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup.retrofit2\\retrofit\\2.3.0\\bcacde6a8ccedcc56c127403d26b76072fe6214d\\retrofit-2.3.0.jar'))
+    from(project.zipTree('C:\\Users\\Administrator\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.findbugs\\jsr305\\2.0.1\\516c03b21d50a644d538de0f0369c620989cd8f0\\jsr305-2.0.1.jar'))
+    // exclude('BuildConfig.class')
+    exclude "**/R.class"
+    exclude "**/R\$*.class"
+    exclude('BuildConfig.class')
+}
+//打源码jar包
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+makeJar.dependsOn(clearJar, build)
